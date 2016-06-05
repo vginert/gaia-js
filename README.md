@@ -12,7 +12,3 @@ Author [Vicente Giner Tendero](https://github.com/vginert)
 ## License
 
   [MIT](LICENSE)
-
-## Table of contents
-
-[TOC]
