@@ -1,25 +1,29 @@
 {
-    "name": "gaia-js",
-    "description": " NodeJs library for climate control in terrariums, aquariums and vivariums using a Raspberry Pi",
-    "version": "0.0.1",
-    "author": {
-        "name": "Vicente Giner Tendero",
-        "email": "vginert@gmail.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/vginert/gaia-js.git"
-    },
-    "license": "MIT",
-    "keywords": [
-        "climate",
-        "terrarium",
-        "vivarium",
-        "tools"
-    ],
-    "files": [
-        "LICENSE",
-        "Readme.md",
-        "index.js"
-    ]
+  "name": "gaia-js",
+  "description": " NodeJs library for climate control in terrariums, aquariums and vivariums using a Raspberry Pi",
+  "version": "0.0.2",
+  "author": {
+    "name": "Vicente Giner Tendero",
+    "email": "vginert@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vginert/gaia-js.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "climate",
+    "terrarium",
+    "vivarium",
+    "tools"
+  ],
+  "files": [
+    "LICENSE",
+    "Readme.md",
+    "index.js"
+  ],
+  "dependencies": {
+    "ds18x20": "^0.2.0",
+    "winston": "^2.2.0"
+  }
 }
