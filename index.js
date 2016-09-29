@@ -24,6 +24,20 @@
 
 'use strict';
 
-module.exports = require('./lib/gaia-js');
-module.exports.Temperature = require('./lib/controllers/temperature');
-module.exports.Humidity = require('./lib/controllers/humidity');
+var MCP = require("./lib/mcp");
+
+module.exports = {
+	MCP: require("./lib/mcp"),
+
+	Device: require("./lib/device"),
+	Controller: require("./lib/controller"),
+
+	Utils: require("./lib/utils"),
+	Logger: require("./lib/logger"),
+
+	device: MCP.addDevice,
+	controller: MCP.addController,
+
+	start: MCP.start,
+	halt: MCP.halt
+};
