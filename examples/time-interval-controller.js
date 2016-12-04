@@ -45,13 +45,13 @@ var mainLightsControl = new TimeIntervalController({
 // Set the controller tick callback
 mainLightsControl.onTick(function(isInInterval) {
 	if(isInInterval) {
-		// Set the lights on
+		// Switch lights on
 	} else {
-		// Set the lights off
+		// Switch lights off
 	}
 });
 
-// Set the controller callback
+// Set the callback of the controller, this method is executed when the controller is started
 mainLightsControl.isInInterval(function(isInInterval) {
 	if(isInInterval) {
 		// Set the lights on

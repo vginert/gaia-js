@@ -105,7 +105,7 @@ Gaia.start();
 
 ### Time interval controller
 
-The use of this controller is recommended when the device used to control the desired values have only on/off states.
+Use this controller to perform actions depending on a time interval, such as turning lights on and off
 
 ```javascript
 var Gaia = require('gaia-js');
