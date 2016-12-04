@@ -24,18 +24,44 @@
 
 'use strict';
 
-var Config = module.exports = {
+var Gaia = require('gaia-js');
+var TimeIntervalController = require('../').TimeIntervalController;
 
-	logger: {
-		colors: {
-			log: '\x1b[0m',
-			error: '\x1b[31m',
-			debug: '\x1b[34m'
+// Create the new Time Interval controller
+var mainLightsControl = new TimeIntervalController({
+	name: 'Main_Lights_Control',
+	intervals: [
+		{
+			start: '17:06',
+			end: '17:07'
 		},
-
-		level: {
-			log: true,
-			debug: process.env.DEBUG ? true : false
+		{
+			start: '17:08',
+			end: '17:09'
 		}
+	]
+});
+
+// Set the controller tick callback
+mainLightsControl.onTick(function(isInInterval) {
+	if(isInInterval) {
+		// Set the lights on
+	} else {
+		// Set the lights off
 	}
-}
+});
+
+// Set the controller callback
+mainLightsControl.isInInterval(function(isInInterval) {
+	if(isInInterval) {
+		// Set the lights on
+	} else {
+		// Set the lights off
+	}
+});
+
+// Add the controller to the GaiaJs core
+Gaia.controller(mainLightsControl);
+
+// Start GaiaJs
+Gaia.start();

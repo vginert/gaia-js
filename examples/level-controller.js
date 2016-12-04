@@ -24,18 +24,32 @@
 
 'use strict';
 
-var Config = module.exports = {
+var Gaia = require('gaia-js');
+var LevelController = require('gaia-js-controllers').LevelController;
 
-	logger: {
-		colors: {
-			log: '\x1b[0m',
-			error: '\x1b[31m',
-			debug: '\x1b[34m'
-		},
+var humidity = 60;
 
-		level: {
-			log: true,
-			debug: process.env.DEBUG ? true : false
-		}
+// Create the new PID controller
+var humidityZone1 = new LevelController({
+	name: 'Humidity_Zone1',
+	input: humidity, // The humidity input usually obtained from a sensor
+	setPoint: 80 // The desired humidity 
+});
+
+// Set the controller callback
+humidityZone1.onCheckLevel(function(controller, levelExceed) {
+	controller.setInput(humidity); // Update the controller input
+
+	// Use the PID output to modify the desired value
+	if(levelExceed) {
+		// The humidity is over the desired value
+	} else {
+		// The humidity is under the desired value
 	}
-}
+});
+
+// Add the controller to the GaiaJs core
+Gaia.controller(humidityZone1);
+
+// Start GaiaJs
+Gaia.start();

@@ -24,18 +24,33 @@
 
 'use strict';
 
-var Config = module.exports = {
+var Gaia = require('gaia-js');
+var PidController = require('gaia-js-controllers').PidController;
 
-	logger: {
-		colors: {
-			log: '\x1b[0m',
-			error: '\x1b[31m',
-			debug: '\x1b[34m'
-		},
+var temperature = 20;
 
-		level: {
-			log: true,
-			debug: process.env.DEBUG ? true : false
-		}
+// Create the new PID controller
+var temperatureZone1 = new PidController({
+	name: 'Temperature_Zone1',
+	input: temperature, // The temperature input usually obtained from a sensor
+	setPoint: 23, // The desired temperature 
+	kp: 500, // PID algorithm settings
+	ki: 200,
+	kd: 0,
+	limits: { // The output limits used for control the temperature
+		outMin: 0,
+		outMax: 255
 	}
-}
+});
+
+// Set the controller callback
+temperatureZone1.onCompute(function(controller, output) {
+	controller.setInput(temperature); // Update the controller input
+	// Use the PID output to modify the desired value
+});
+
+// Add the controller to the GaiaJs core
+Gaia.controller(temperatureZone1);
+
+// Start GaiaJs
+Gaia.start();
