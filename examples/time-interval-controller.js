@@ -25,7 +25,7 @@
 'use strict';
 
 var Gaia = require('gaia-js');
-var TimeIntervalController = require('../').TimeIntervalController;
+var TimeIntervalController = require('gaia-js-controllers').TimeIntervalController;
 
 // Create the new Time Interval controller
 var mainLightsControl = new TimeIntervalController({
