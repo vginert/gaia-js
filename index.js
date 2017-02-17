@@ -38,6 +38,9 @@ module.exports = {
 	device: MCP.addDevice,
 	controller: MCP.addController,
 
+	getDevice: MCP.getDevice,
+	getController: MCP.getController,
+
 	start: MCP.start,
 	halt: MCP.halt
 };
