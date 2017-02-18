@@ -1,7 +1,7 @@
 {
   "name": "gaia-js",
   "description": " NodeJs library for climate control in terrariums, aquariums, vivariums and grow rooms using a Raspberry Pi",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
